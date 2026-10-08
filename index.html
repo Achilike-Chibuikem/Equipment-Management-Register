@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipment Maintenance Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Equipment Maintenance Register</h1>
+
+  <h2>Add / Edit Record</h2>
+  <div class="form-box">
+    <input type="text" id="nameInput" placeholder="Equipment (e.g. CCTV Camera)">
+    <input type="text" id="locationInput" placeholder="Location (e.g. Office A)">
+
+    <select id="statusInput">
+      <option value="Working">Working</option>
+      <option value="Maintenance">Maintenance</option>
+      <option value="Faulty">Faulty</option>
+    </select>
+
+    <input type="date" id="dateInput">
+
+    <p id="message"></p>
+
+    <button id="saveButton" onclick="saveRecord()">Add Record</button>
+    <button id="cancelButton" class="hidden" onclick="clearForm()">Cancel</button>
+  </div>
+
+  <h2>Records</h2>
+  <input type="text" id="search" placeholder="Search by equipment name...">
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Equipment</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Supabase library (this gives us the "supabase" object) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
